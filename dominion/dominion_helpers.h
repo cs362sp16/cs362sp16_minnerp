@@ -12,4 +12,9 @@ int getCost(int cardNumber);
 int cardEffect(int card, int choice1, int choice2, int choice3, 
 	       struct gameState *state, int handPos, int *bonus);
 
+int adventurerCard (int drawntreasure, struct gameState *state, int currentPLayer);
+int councilRoomCard (int currentPlayer, struct gameState *state, int handPos);
+int feastCard (int currentPlayer, struct gameState *state, int choice1);
+int mineCard (int currentPlayer, struct gameState *state, int choice1, int choice2, int handPos);
+int remodelCard (int currentPlayer, struct gameState *state, int choice1, int choice2, int handPos);
 #endif

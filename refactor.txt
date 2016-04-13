@@ -1,0 +1,14 @@
+Paul Minner
+Assignment 1
+Refactor Explanation
+
+I refactored the cards: adventurer, councilRoom, feast, mine, and remodel 
+into their own functions and called them within the switch statement. 
+I included the prototypes for the functions within dominion_helpers.h,
+and added the functions themselves at the bottom of dominion.c.
+I refactored the functions by copying the entire contents of the
+switch case from that card into the function. I then determined
+any variables the card was dependent on and added them as arguments
+to the card function. I also removed a few unused variables afterwards.
+
+
