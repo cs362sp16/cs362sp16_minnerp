@@ -1,0 +1,10 @@
+Paul Minner
+Assignment 2
+unittestbugs
+
+After running all 8 of my unit tests, I did find one bug. 
+It was testing the sea hag card. There appears to be 
+multiple problems with this card. One problem is it seems 
+to decrement all other players cards by 3 instead of 1. 
+Also, I didn't see that a curse card was added to every deck.
+

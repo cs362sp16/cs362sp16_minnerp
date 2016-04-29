@@ -1323,7 +1323,7 @@ int mineCard (int currentPlayer, struct gameState *state, int choice1, int choic
 		{
 			if (state->hand[currentPlayer][i] == j)
 				{
-					discardCard(j, currentPlayer, state, 0); //Note: i to j			
+					discardCard(i, currentPlayer, state, 0); 
 					break;
 				}
 		}
