@@ -91,7 +91,7 @@ Cards not in game should initialize supply position to -1 */
 
 int shuffle(int player, struct gameState *state);
 /* Assumes all cards are now in deck array (or hand/played):  discard is
- empty */
+ empty NOT TRUE: FIXED THIS*/
 
 int playCard(int handPos, int choice1, int choice2, int choice3,
 	     struct gameState *state);

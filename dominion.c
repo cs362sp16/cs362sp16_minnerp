@@ -206,8 +206,10 @@ int shuffle(int player, struct gameState *state) {
 	int card;
 	int i;
 
-	if (state->deckCount[player] < 1)
+	//Add discard to deck if empty
+	if (state->deckCount[player] < 1) {
 		return -1;
+	}
 	qsort ((void*)(state->deck[player]), state->deckCount[player], sizeof(int), compare); 
 	/* SORT CARDS IN DECK TO ENSURE DETERMINISM! */
 
@@ -1184,9 +1186,19 @@ int adventurerCard (int drawntreasure, struct gameState *state, int currentPlaye
 	int z = 0;
 	int temphand[MAX_HAND];
 	int cardDrawn;
+	int i;
 
 	while(drawntreasure<2){
 		if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
+			for (i = 0; i < state->discardCount[currentPlayer]; i++){
+				state->hand[currentPlayer][i] = 
+					state->discard[currentPlayer][i];
+				state->discard[currentPlayer][i] = 0;
+			}
+			state->handCount[currentPlayer] = 
+				state->discardCount[currentPlayer];
+			state->discardCount[currentPlayer] = 0;
+
 			shuffle(currentPlayer, state);
 		}
 		drawCard(currentPlayer, state);
