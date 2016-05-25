@@ -74,9 +74,6 @@ randomtestcards.out: randomtestadventurer randomtestcard1 randomtestcard2
 testdominion: dominion.o testdominion.c
 	gcc -o testdominion testdominion.c -g dominion.o rngs.o $(CFLAGS)
 
-testdominion.out: testdominion
-	./testdominion 42 > testdominion.out
-
 all: playdom player
 
 clean:

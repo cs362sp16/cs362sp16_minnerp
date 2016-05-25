@@ -1,1 +1,0 @@
-fixed bug in adventurecard when the player's deck is empty. Now, the shuffle function adds discard back to the deck like adventurecard assumed it already did. 

@@ -1,0 +1,38 @@
+#!/bin/bash
+# This script diffs two different dominion implementations
+
+# Make the two dominions
+make -C $1 dominion.o
+make -C $2 dominion.o
+
+# Run testdominion with first dominion
+mv dominion.o dominion.o.or
+cp $1/dominion.o .
+make testdominion
+testdominion $3 > output1
+
+# Run testdominion with second dominion
+rm dominion.o
+cp $2/dominion.o .
+make testdominion
+testdominion $3 > output2
+
+rm dominion.o
+mv dominion.o.or dominion.o
+
+# Check if they are different
+diff output1 output2 > outputdiff
+
+if [ $? == 0 ] 
+then
+    echo 'TEST PASSED'
+    rm outputdiff
+else
+    echo 'TEST FAILED'
+fi
+
+rm output1
+rm output2
+
+
+

@@ -1,0 +1,24 @@
+My tester works by copying the dominion.o files from each directory into
+the director with diffdominion and running testdominion. The classmate
+who's code I tested is Cody Holliday. I left his code in the test2 directory.
+A copy of my own code is in the test 1 directory. I first found a difference
+between our dominions with the seed of 42. The first difference was on line 
+900, which was about three quarters of the way through the game. The coverage
+for my code was 56.46% and his code was 62.30%. These percentages are very
+close, so we can assume an equal portion of each implementation was tested.
+The difference itself is one implementation didn't allow buying a card, while
+the other did. From then on, most of the game was different for the two
+implementations. It is difficult to tell who is correct, because not enough
+information is given on why the card could not be bought. This isn't an ideal
+case of differential testing, because both implementations of dominion 
+appear to still have many problems, and many of the problems are the same 
+because the two implementations are based off of the same dominion. 
+Differential testing works better when the implementations are very different,
+and one implementation is correct or close to correct. I ran my tester with
+other seeds as well, and the two implementations are never the same. Most 
+differences I have seen are about buying a card and playing a card. The 
+coverage for both implementations is almost always between 50% - 70%. I 
+can easily get 60% coverage in 20 runs of the tester, because sometimes, I 
+get more coverage than that on the first run. I also tested this, and managed
+60% coverage in 2 runs of the tester. 
+

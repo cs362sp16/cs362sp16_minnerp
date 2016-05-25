@@ -1,0 +1,26 @@
+Paul Minner
+Assignment 2
+unittesting
+
+After running gcov on my tests, I saw that my unit tests
+wen over more code than I had thought. My total code coverage
+for all 8 tests was 36.38%. Although this isn't that high, 
+I didn't test very many functions, and none of the largest
+ones. I think the reason is because I end up running code
+during the test that I'm not actually testing. You can see
+this because some of my tests jump way up in code coverage
+while others are at about a percent or so. For example, I 
+had to run initializeGame even though I wasn't testing
+that particular function, which brought up my code coverage
+considerably. Therefore, I think code coverage is good for
+seeing what you haven't tested at all, but not so good for
+poorly tested code.
+
+My approach to unit testing for this assignment was to 
+figure out everything that a function was supposed to 
+change, then check that the value changed with an 
+assert after I ran the function. This isn't simple
+though, because there are more complicated functions
+which are hard to even tell everything they are supposed
+to change. I think unit tests are better for writing
+before you write the function, rather than after. 
