@@ -1,0 +1,15 @@
+6/1/16
+Paul Minner
+Bug Report: Cody Holliday Dominion Implementation
+
+BUG: remodel card discards incorrect card from hand.
+PRIORITY: Low
+SEVERITY: Low
+
+When testing the remodel card with my randomtestcard2 tester, I noticed
+my tester failed on many different seeds. I checked what was going on in
+the debugger, and I saw that the new card sometimes costed more than
+it should have. I checked the code and saw that the cost is checked for 
+the choice1 variable in the player's hand, but the card that is discarded
+is from the variable handPos. The discard should discard choice1 instead.
+

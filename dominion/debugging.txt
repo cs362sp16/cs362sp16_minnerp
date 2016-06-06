@@ -1,0 +1,45 @@
+6/1/16
+Paul Minner
+Bug Report: My Dominion Implementation
+
+BUG: sea hag card doesn't add curse card to top of player's decks
+PRIORITY: Low
+SEVERITY: Low
+
+The bug I fixed in my code had to do with the sea hag card working 
+incorrectly. From my cardtest2.c test, which tested the sea_hag card, I 
+knew that the card wasn't working correctly because it failed all of my
+assertions. My assertions checked that the amount of cards for the other
+players hadn't changed, and that the top card on their decks was a curse
+card. I used my debugger to determine the decksize of the other players,
+and I saw that it was 3 off from what it was supposed to be. After looking
+in the code, I saw that this was because instead of referencing the i-1 
+element in sea hag, the code put -- at the end of element, decrementing
+the count each time instead of accessing the desired number. Also, the 
+deckCount was being decremented even though the discarded card is replaced
+by a new curse card. 
+
+Agan's first rule, which is to understand the system, came in handy here.
+I looked up what the effects of the card were supposed to be before I 
+tested the card, so I could be sure what the card was supposed to do.
+Otherwise, I might have believed the behavior was just correct. 
+
+The priority and severity of this bug are both low. This is because 
+the bug doesn't cause dominion to fail, and the bug only affects
+a small portion of the game, so it is not time critical or a big
+bug.
+
+My Fixed Code:
+
+case sea_hag:
+     for (i = 0; i < state->numPlayers; i++){
+	if (i != currentPlayer){
+	   state->discard[i][state->discardCount[i]] = 
+	          state->deck[i][state->deckCount[i]-1];
+	   state->discardCount[i]++;
+	   state->deck[i][state->deckCount[i]-1] = curse;
+	   //Top card now a curse
+	}
+}
+return 0;
+		

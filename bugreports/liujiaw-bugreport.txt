@@ -1,0 +1,14 @@
+6/1/16
+Paul Minner
+Bug Report: liujiaw Dominion Implementation
+
+BUG: smithy card only adds two cards instead of three.
+PRIORITY: Low
+SEVERITY: Low
+
+When testing the smithy card with my cardtest1 tester, my test
+would fail every time. When I checked the numbers I was testing,
+I saw that only two new cards were added with smithy instead of
+three. I checked the code and this is because the loop to draw
+three cards is for(i=1; i<3; i++), which only adds two cards,
+not three. 

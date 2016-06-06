@@ -1,0 +1,53 @@
+#!/bin/bash
+# This script performs mutant testing on dominion
+
+FILES=./mutanttesting/mutants/*
+NUM=42
+
+# Get output from original dominion
+make testdominion &> /dev/null
+./testdominion $NUM > outputOriginalMutantTester
+mv dominion.c dominion.or.c
+mv dominion.o dominion.or.o
+
+# Test each mutant
+for f in $FILES
+do
+    cp $f dominion.c
+    make clean &> /dev/null
+    make testdominion &> /dev/null
+    
+    # Check if mutant compiled
+    if [ -f dominion.o ]
+    then
+	# Mutant will compile
+	timeout 5s ./testdominion $NUM > outputMutantMutantTester
+	diff outputOriginalMutantTester outputMutantMutantTester &> /dev/null
+	
+	# Check if diff is different
+	if [ $? == 0 ]
+	then
+	    echo "Did Not Kill Mutant"
+	    mv $f ./mutanttesting/notkilled
+	else
+	    echo "Killed Mutant"
+	    mv $f ./mutanttesting/killed
+	fi
+	rm outputMutantMutantTester
+    else
+	# Mutant won't compile
+	echo "Mutant $f doesn't compile."
+	mv $f ./mutanttesting/notcompiled
+    fi
+    
+    # Clean up
+    rm dominion.c
+    rm dominion.o
+done
+
+
+# Put things back to normal
+make clean
+mv dominion.or.c dominion.c
+rm outputOriginalMutantTester
+rm dominion.or.o

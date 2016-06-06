@@ -1,0 +1,12 @@
+6/1/16
+Paul Minner
+Bug Report duanyi Dominion Implementation
+
+BUG: village card adds one too many actions
+PRIORITY: Low
+SEVERITY: Low
+
+When testing the village card with my cardtest4 tester, I noticed
+my tester failed. After checking the code, I saw that the actions
+was incremented by three instead of two. Changing this would fix
+the problem.

@@ -1,0 +1,56 @@
+TESTING numHandCards
+TEST SUCCESSFUL
+GCOV AFTER UNITTEST1
+File 'dominion.c'
+Lines executed:4.42% of 565
+Creating 'dominion.c.gcov'
+
+TESTING endTurn
+TEST SUCCESSFUL
+GCOV AFTER UNITTEST2
+File 'dominion.c'
+Lines executed:23.01% of 565
+Creating 'dominion.c.gcov'
+
+TESTING updateCoins
+TEST SUCCESSFUL
+GCOV AFTER UNITTEST3
+File 'dominion.c'
+Lines executed:23.36% of 565
+Creating 'dominion.c.gcov'
+
+TESTING isGameOver
+TEST SUCCESSFUL
+GCOV AFTER UNITTEST4
+File 'dominion.c'
+Lines executed:24.78% of 565
+Creating 'dominion.c.gcov'
+
+TESTING smithy card
+TEST SUCCESSFUL
+GCOV AFTER CARDTEST1
+File 'dominion.c'
+Lines executed:30.97% of 565
+Creating 'dominion.c.gcov'
+
+TESTING sea hag card
+TEST SUCCESSFUL
+GCOV AFTER CARDTEST2
+File 'dominion.c'
+Lines executed:32.21% of 565
+Creating 'dominion.c.gcov'
+
+TESTING adventurer card
+TEST SUCCESSFUL
+GCOV AFTER CARDTEST3
+File 'dominion.c'
+Lines executed:35.04% of 565
+Creating 'dominion.c.gcov'
+
+TESTING village card
+TEST SUCCESSFUL
+GCOV AFTER CARDTEST4
+File 'dominion.c'
+Lines executed:35.75% of 565
+Creating 'dominion.c.gcov'
+

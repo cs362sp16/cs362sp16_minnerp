@@ -1,0 +1,20 @@
+For my mutant testing efforts, I generated a total of 2560 mutants on
+dominion.c. I then created a bash script called mutanttester in my
+dominion directory, which took all of the mutants placed in the
+mutanttesting/mutants directory, and depending on what happened, 
+either placed them in the notkilled, killed, or notcompiled directory.
+I achieved this by moving the source files to each directory depending
+on whether the file compiled, and whether or not the ouput from my
+random tester, named testdominion, produced different output than the
+output from my original dominion.c. My results were interesting. Out of
+the total 2560 mutants, 125 didn't compile, 680 were killed, and 1755
+were not killed. Of all of the compilable mutants, 30% were actually 
+killed by my random tester, leading me to believe that my random tester
+doesn't work very well. In addition to the percentage, when I watched 
+my mutants be tested, I noticed that there were big chunks of mutants
+which were not killed in specific places. I believe that means that
+certain parts of my code are tested well, but other portions where all
+of the mutants were failed to be killed were hardly tested at all. 
+Overall, mutant testing did it's job, because it showed me that my 
+tester needs to be improved upon before I can rely on it finding many
+bugs for me. 
